@@ -5,6 +5,7 @@ package mck;
 service Mck {
   rpc FetchJobs(JobRequest) returns(Job) {}
   rpc DownloadMCK(MCKRequest) returns(MolComKit) {}
+  rpc SendResult(JobResult) returns(Empty) {}
 }
 
 message JobRequest {
@@ -24,4 +25,13 @@ message Job {
 
 message MolComKit {
   bytes binary = 1;
+}
+
+message JobResult {
+  string name = 1;
+  string result = 2;
+}
+
+message Empty {
+
 }
