@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package mck;
+
+service Mck {
+  rpc FetchJobs(JobRequest) returns(Job) {}
+  rpc DownloadMCK(MCKRequest) returns(MolComKit) {}
+}
+
+message JobRequest {
+  int32 numRequest = 1;
+}
+
+message MCKRequest {
+  string name = 1;
+}
+
+message Job {
+  string name = 1;
+  bytes settings = 2;
+  int32 numJobs = 3;
+  string mckName = 4;
+}
+
+message MolComKit {
+  bytes binary = 1;
+}
